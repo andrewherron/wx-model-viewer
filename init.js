@@ -5,26 +5,35 @@ var S_EPOCH = new Date().getTime();
 var MODELS = {
 	'nam': {
 		'hours': [
-			{'max': 84, 'div': 6}
+			{'max': 84, 'div': 3}
 		],
 		'maps': {
-			'200': {'name': '200mb Wind, Ht'},
-			'300': {'name': '300mb Wind, Ht'},
-			'500': {'name': '500mb Vort, Ht'},
-			'700': {'name': '700mb RH, Ht'},
-			'850': {'name': '850mb Temp, Ht'},
-			'p06': {'name': 'Total Pcpn 06 hrs'},
-			'p12': {'name': 'Total Pcpn 12 hrs'},
-			'p24': {'name': 'Total Pcpn 24 hrs'},
-			'p36': {'name': 'Total Pcpn 36 hrs'},
-			'p48': {'name': 'Total Pcpn 48 hrs'},
-			'p60': {'name': 'Total Pcpn 60 hrs'},
-			'tpp': {'name': 'Total Pcpn of Period'},
-			'pcp': {'name': '850mb Temp, MSLP, 6hr Pcpn'},
-			'ref': {'name': 'Sim Radar Reflectivity'},
-			'sl7': {'name': 'MSLP 850-700mb'},
-			'sl8': {'name': 'MSLP 1000-850mb'},
-			'slp': {'name': 'MSLP 1000-500mb'}
+			'200_wnd_ht': {'name': '200mb Wind, Ht'},
+			'250_wnd_ht': {'name': '250mb Wind, Ht'},
+			'250_stream': {'name': '250mb Stream'},
+			'300_wnd_ht': {'name': '300mb Wind, Ht'},
+			'500_vort_ht': {'name': '500mb Vort, Ht'},
+			'500_rh_ht': {'name': '500mb RH, Ht'},
+			'700_rh_ht': {'name': '700mb RH, Ht'},
+			'850_temp_ht': {'name': '850mb Temp, Ht'},
+			'850_vort_ht': {'name': '850mb Vort, Ht'},
+			'850_rh_ht': {'name': '850mb RH, Ht'},
+			'850_pw_ht': {'name': '850mb PW, Ht'},
+			'850_stream': {'name': '850mb Stream'},
+			'850_temp_mslp_precip': {'name': '850mb Temp, MSLP, 6hr Pcpn'},
+			'10m_wnd_precip': {'name': '10m Wind, Pcpn'},
+			'precip_p06': {'name': 'Total Pcpn 06 hrs'},
+			'precip_p12': {'name': 'Total Pcpn 12 hrs'},
+			'precip_p24': {'name': 'Total Pcpn 24 hrs'},
+			'precip_p36': {'name': 'Total Pcpn 36 hrs'},
+			'precip_p48': {'name': 'Total Pcpn 48 hrs'},
+			'precip_p60': {'name': 'Total Pcpn 60 hrs'},
+			'precip_ptot': {'name': 'Total Pcpn of Period'},
+			'sim_radar': {'name': 'Sim Radar Reflectivity'},
+			'850_700_thick': {'name': 'MSLP 850-700mb, 6hr Pcpn'},
+			'1000_850_thick': {'name': 'MSLP 1000-850mb, 6hr Pcpn'},
+			'1000_500_thick': {'name': 'MSLP 1000-500mb, 6hr Pcpn'},
+			'850vor_500ht_200wd': {'name': '850mb Vort, 500mb Ht, 200mb Wind'}
 		},
 		'runs': {
 			'00': { 'name': '00z' },
@@ -33,12 +42,10 @@ var MODELS = {
 			'18': { 'name': '18z' }
 		},
 		'types': {
-			's': { 'name': 'coarse' },
-			'm': { 'name': 'medium' },
-			'l': { 'name': 'fine' }
+			'namer': { 'name': 'namer' }
 		},
-		'base_url': 'http://www.nco.ncep.noaa.gov/pmb/nwprod/analysis/namer/nam/',
-		'url_template': 'http://www.nco.ncep.noaa.gov/pmb/nwprod/analysis/namer/%M/%r/images/%M_%m_%P%t.gif',
+		'base_url': 'http://mag.ncep.noaa.gov/nam/',
+		'url_template': 'http://mag.ncep.noaa.gov/nam/%r/%M_%t_%P_%m.gif',
 		'name': 'NAM'
 	},
 	'gfs': {
@@ -303,5 +310,5 @@ var MODELS = {
 var CUR_MODEL = 'nam';
 var CUR_HOUR = 0;
 var CUR_RUN = '00';
-var CUR_MAP = 'pcp'
-var CUR_TYPE = 's';
+var CUR_MAP = '850_temp_mslp_precip'
+var CUR_TYPE = 'namer';

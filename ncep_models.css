@@ -1,0 +1,50 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#model-menu {
+	border-bottom: solid 1px #000;
+}
+
+#model-menu ul {
+  padding: 1px;
+  margin: 0;
+}
+
+#model-menu li {
+	display: inline;
+}
+#help {
+	font-size: 20px;
+	font-weight: bold;
+	margin: -10px 0 0 10px;
+	padding: 0;
+	cursor: pointer;
+}
+
+#link {
+  margin-left: 5px;
+}
+
+#keyboard-layout {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: move;
+  background-color: #FFF;
+  border: 1px solid #000;
+  height: 350px;
+  width: 300px;
+}
+
+#close {
+	cursor: pointer;
+	color: #3399CC;
+	padding-top: 10px;
+}
+
+.show {
+	display: block !important;
+}

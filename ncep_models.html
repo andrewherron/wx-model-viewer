@@ -1,0 +1,66 @@
+<html>
+<head>
+<script type="text/javascript" src="mootools-1.2.1-core.js"></script>
+<script type="text/javascript" src="mootools-1.2-more.js"></script>
+<script type="text/javascript" src="init.js"></script>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="ncep_models.js"></script>
+<link type="text/css" href="ncep_models.css" rel="stylesheet"/>
+<title>KWiXS NCEP Viewer v0.8.20100407</title>
+</head>
+<body>
+<div id="model-menu">
+	<ul>
+		<li>
+			<label>Model:</label>
+			<select id="model-select">
+			</select>
+		</li>
+		<li>
+			<label>Type:</label>
+			<select id="type-select">
+			</select>
+		</li>
+		<li>
+			<label>Run:</label>
+			<select id="run-select">
+			</select>
+		</li>
+		<li>
+			<label>Hour:</label>
+			<select id="hour-select">
+			</select>
+		</li>
+		<li>
+			<label>Map:</label>
+			<select id="map-select">
+			</select>
+		</li>
+		<li>
+			<span id="help">?</span>
+		</li>
+		<li>
+		  <a id="link" href="">Image Link</a>
+		</li>
+	</ul>
+</div>
+<div><img id="model-image"/></div>
+<div id="keyboard-layout">
+	<img src="keyboard_layout.gif"/><br/>
+	Holding [SHIFT] while changing model run<br/>
+	will cause the valid date to stay the same.
+	<div id="close">CLOSE HELP</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-3479661-5");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

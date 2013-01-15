@@ -51,7 +51,7 @@ var MODELS = {
 	},
 	'gfs': {
 		'hours': [
-			{'max': 180, 'div': 6},
+			{'max': 180, 'div': 3},
 			{'max': 384, 'div': 12}
 		],
 		'maps': {

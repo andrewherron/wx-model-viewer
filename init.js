@@ -82,6 +82,32 @@ var MODELS = {
 		'url_template': 'http://www.nco.ncep.noaa.gov/pmb/nwprod/analysis/namer/%M/%r/images/%M_%m_%P%t.gif',
 		'name': 'GFS'
 	},
+	'rapeta': {
+		'hours': [
+			{'max': 84, 'div': 6}
+		],
+		'maps': {
+			'sfc_temp': {'name': 'Surface Temp (F)'},
+			'sfc_dewp': {'name': 'Surface Dewpoint (F)'},
+			'sfc_mslp': {'name': 'Surface MSLP'},
+			'sfc_thet': {'name': 'Surface Theta-E'},
+			'sfc_prcp': {'name': 'Surface Precip (6hr)'},
+			'sfc_ptyp': {'name': 'Surface Precip Type'},
+			'sfc_cape': {'name': 'Surface CAPE/CIN'},
+			'sfc_pwat': {'name': 'Surface PWat/LI'},
+			'sfc_sreh': {'name': 'Surface Storm Relative Helicity'}
+		},
+		'runs': {
+			'': { 'name': 'Current' }
+		},
+		'types': {
+			'': { 'name': ''}
+		},
+		'base_url': 'http://www.rap.ucar.edu/weather/model/eta',
+		'url_template': 'http://www.rap.ucar.edu/weather/model/eta%phr_%m.gif',
+		'hour_string_length': 2,
+		'name': 'UCAR RAP ETA'
+	},
 	'gefs': {
 		'hours': [
 			{'max': 180, 'div': 6},
@@ -195,52 +221,82 @@ var MODELS = {
 		'url_template': 'http://www.nco.ncep.noaa.gov/pmb/nwprod/analysis/namer/%M/%r/images/%M_%m_%P%t.gif',
 		'name': 'SREF'
 	},
-	'wrf': {
+	'cent4km': {
 	  'hours': [
-	    {'max': 168, 'div': 12}
+		{'max': 36, 'div': 1}
+	  ],
+	  'maps': {
+		'today_1h': {'name': '1hr Precip'},
+		'refd_1000m': {'name': 'Sim Ref 1km AGL'},
+		'mx1000refd': {'name': 'Max Sim Ref 1km AGL'},
+		'refc': {'name': 'Sim Sfc Ref Composite'},
+		'uphl': {'name': 'Updraft Helicity'},
+		'mxuphl': {'name': 'Max Updraft Helicity'},
+		'echotop': {'name': 'Sim Echo Tops'},
+		'etop50': {'name': 'Sim Echo Tops 50dBz LVL'},
+		'tcolc': {'name': 'Total Column Condensate'},
+		'vil': {'name': 'Sim VIL'},
+		'mwrf': {'name': 'Mass Wghtd Rime Factor'},
+		't2ms': {'name': '2m Temps'}
+	  },
+	  'runs': {
+		'00': {'name': '00z'},
+		'12': {'name': '12z'}
+	  },
+	  'types': {
+		'4km': {'name': '4km'}
+	  },
+	  'base_url': 'http://www.emc.ncep.noaa.gov/mmb/mpyle/cent4km/conus/',
+	  'url_template': 'http://www.emc.ncep.noaa.gov/mmb/mpyle/cent4km/conus/%r/%m_f%p.gif',
+	  'hour_string_length': 2,
+	  'name': '4km CONUS WRF-NMM'
+	},
+	'dtxwrf': {
+	  'hours': [
+	    {'max': 18.5, 'div': 0.5}
 	   ],
 	   'maps': {
-	     '1': {'name': 'MSLP/2m T & Td'},
-	     '2': {'name': '500mb AVOR'},
-	     '3': {'name': '300mb Wind'},
-	     '4': {'name': '250mb PV'},
-	     '5': {'name': 'Reflectivity'},
-	     '6': {'name': '6h - QPF'},
-	     '7': {'name': '850mb T'},
-	     '8': {'name': 'Low-Lvl RH & Sfc Wind'},
-	     '9': {'name': 'Thickness'},
-	     '10': {'name': 'Omega'},
-	     '11': {'name': 'CAPE/CIN'},
-	     '12': {'name': 'PWat'},
-	     '13': {'name': 'DTW SkewT'},
-	     '14': {'name': 'FNT SkewT'},
-	     '15': {'name': 'MBS SkewT'},
-	     '16': {'name': 'GRR SkewT'},
-	     '17': {'name': 'APX SkewT'},
-	     '18': {'name': 'MQT SkewT'},
-	     '19': {'name': 'GRB SkewT'},
-	     '20': {'name': 'MKE SkewT'},
-	     '21': {'name': 'ORD SkewT'},
-	     '22': {'name': 'IND SkewT'},
-	     '23': {'name': 'MPX SkewT'},
-	     '24': {'name': 'STL SkewT'},
-	     '25': {'name': 'MCI SkewT'},
-	     '26': {'name': 'OUN SkewT'},
-	     '27': {'name': 'BUF SkewT'},
-	     '28': {'name': 'BOS SkewT'},
-	     '29': {'name': 'JFK SkewT'},
-	     '30': {'name': 'DCA SkewT'},
-	     '31': {'name': 'BHM SkewT'}
+	     '1': {'name': '2m Temp / Dewpoint'},
+	     '2': {'name': 'Composite Reflectivity'},
+	     '3': {'name': '950mb Height / Wind'},
+	     '4': {'name': '850mb Height / Wind'},
+	     '5': {'name': '700mb Height / Wind'},
+	     '6': {'name': '500mb Height / Wind'},
+	     '7': {'name': 'MSLP / Sfc Wind / 1h Pcp'},
+	     '8': {'name': '950mb Height / RH / Temp'},
+	     '9': {'name': '850mb Height / RH / Temp'},
+	     '10': {'name': '700mb Height / RH / Temp'},
+	     '11': {'name': '500mb Height / Temp / Wind'},
+	     '12': {'name': '10m Wind'},
+	     '13': {'name': '950-850mb Omega'},
+	     '14': {'name': 'Surface CAPE'},
+	     '15': {'name': 'DTX SkewT'},
+	     '16': {'name': 'FNT SkewT'},
+	     '17': {'name': 'MBS SkewT'},
+	     '18': {'name': 'GRR SkewT'},
+	     '19': {'name': 'APX SkewT'},
+	     '20': {'name': '1km Shear Vector'},
+	     '21': {'name': '6km Shear Vector'},
+	     '22': {'name': 'LCL Height'},
+	     '23': {'name': 'Precipitable Water'}
 	   },
 	   'runs': {
-	     'latest': {'name': 'latest'}
+	     '00': {'name': '00z'},
+		 '03': {'name': '03z'},
+		 '06': {'name': '06z'},
+		 '09': {'name': '09z'},
+		 '12': {'name': '12z'},
+		 '15': {'name': '15z'},
+		 '18': {'name': '18z'},
+		 '21': {'name': '21z'}
 	   },
 	   'types': {
-	     'hemi': {'name': 'hemisphere'}
+	     's': {'name': 'small'}
 	   },
-	   'base_url': 'http://www.crh.noaa.gov/images/dtx/mann/',
-	   'url_template': 'http://www.crh.noaa.gov/images/dtx/mann/%M%t_%m_%P.gif',
-	   'name': 'DTX WRF Hemispheric'
+	   'base_url': 'http://www.crh.noaa.gov/images/dtx/WRF/HiRes/',
+	   'url_template': 'http://www.crh.noaa.gov/images/dtx/WRF/HiRes/overview_%r_%H_%m.gif',
+	   'hour_string_length': 1,
+	   'name': 'DTX WRF HiRes'
 	 }
 }
 

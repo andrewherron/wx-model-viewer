@@ -57,7 +57,18 @@ function getFirstOption(id) {
 
 
 function fixHour(num) {
-	return fixNum(num, 3);
+	var hsl = MODELS[CUR_MODEL].hour_string_length;
+	if (hsl == undefined) {
+		return fixNum(num, 3);
+	} else {
+		return fixNum(num, hsl);
+	}
+}
+
+function fixLongHour(num) {
+	var min = (num % 1) * 60
+	if (min == 0) min += "0";
+	return Math.floor(num) + ":" + min;
 }
 
 function fixRun(num) {
@@ -124,6 +135,9 @@ function replaceStr(s) {
 			break;
 		case '%P':
 			return fixNum(CUR_HOUR, 3);
+			break;
+		case '%H':
+			return fixLongHour(CUR_HOUR);
 			break;
 	}
 }

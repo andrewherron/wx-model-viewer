@@ -243,7 +243,7 @@ function selectPrevRun(shift) {
 	var prevRun = checkFor($('run-select'), CUR_RUN, 'prev');
 	if (prevRun) {
 		selectRun(prevRun.value);
-		if (shift) selectNextHour();
+		if (shift) selectNextHour(true);
 		return false;
 	} else {
 		return 'Already at first run';
@@ -254,7 +254,7 @@ function selectNextRun(shift) {
 	var nextRun = checkFor($('run-select'), CUR_RUN, 'next');
 	if (nextRun) {
 		selectRun(nextRun.value);
-		if (shift) selectPrevHour();
+		if (shift) selectPrevHour(true);
 		return false;
 	} else {
 		return 'Already at last run';
@@ -321,20 +321,28 @@ function selectNextType() {
 	}
 }
 
-function selectPrevHour() {
+function selectPrevHour(shift) {
+	var shiftValue = 0;
 	var prevHour = checkFor($('hour-select'), CUR_HOUR, 'prev');
 	if (prevHour) {
-		selectHour(prevHour.value);
+		if (shift) {
+			shiftValue = CUR_HOUR - parseInt(prevHour.value);
+		}
+		selectHour(parseInt(prevHour.value) - shiftValue);
 		return false;
 	} else {
 		return 'Can not go below zero hour'
 	}
 }
 
-function selectNextHour() {
+function selectNextHour(shift) {
+	var shiftValue = 0;
 	var nextHour = checkFor($('hour-select'), CUR_HOUR, 'next');
 	if (nextHour) {
-		selectHour(nextHour.value);
+		if (shift) {
+			var shiftValue = parseInt(nextHour.value) - CUR_HOUR;
+		}
+		selectHour(parseInt(nextHour.value) + shiftValue);
 		return false;
 	} else {
 		return 'Hour out of range'

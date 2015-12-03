@@ -45,13 +45,13 @@ var MODELS = {
 		'types': {
 			'namer': { 'name': 'namer' }
 		},
-		'base_url': 'http://mag.ncep.noaa.gov/nam/',
-		'url_template': 'http://mag.ncep.noaa.gov/nam/%r/%M_%t_%P_%m.gif',
+		'base_url': 'http://mag.ncep.noaa.gov/data/nam/',
+		'url_template': 'http://mag.ncep.noaa.gov/data/nam/%r/%M_%t_%P_%m.gif',
 		'name': 'NAM'
 	},
 	'gfs': {
 		'hours': [
-			{'max': 180, 'div': 3},
+			{'max': 192, 'div': 3},
 			{'max': 384, 'div': 12}
 		],
 		'maps': {
@@ -102,8 +102,8 @@ var MODELS = {
 			'africa': {'name': 'africa'},
 			'polar': {'name': 'polar'}
 		},
-		'base_url': 'http://mag.ncep.noaa.gov/gfs/',
-		'url_template': 'http://mag.ncep.noaa.gov/gfs/%r/%M_%t_%P_%m.gif',
+		'base_url': 'http://mag.ncep.noaa.gov/data/gfs/',
+		'url_template': 'http://mag.ncep.noaa.gov/data/gfs/%r/%M_%t_%P_%m.gif',
 		'name': 'GFS'
 	},
 	'rapeta': {

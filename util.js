@@ -36,7 +36,7 @@ function findHourHash(hour) {
 	var i = 0;
 	while (i < MODELS[CUR_MODEL].hours.length) {
 		hash = MODELS[CUR_MODEL].hours[i];
-		if (hour > hash.max) {
+		if (hour >= hash.max) {
 			i++;
 		} else {
 			i = MODELS[CUR_MODEL].hours.length;
